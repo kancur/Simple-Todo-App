@@ -1,10 +1,15 @@
 export default class Project {
-    constructor(name){
-        this.name = name;
-        this.todos = [];
-    }
+  constructor(name) {
+    this.name = name;
+    this.todos = [];
+  }
 
-   addNewTodo(todo){
-        this.todos.push(todo)
-   }
+  addTodo(todo) {
+    this.todos.push(todo);
+    return todo
+  }
+
+  getTodos(){
+    return this.todos
+  }
 }

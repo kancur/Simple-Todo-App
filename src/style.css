@@ -1,0 +1,64 @@
+html {
+    background-color: rgb(235, 235, 235);
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    font-size: 42px;
+    text-align: center;
+    font-weight: 600;
+    background-color: #A18276;
+    padding: 30px;
+    box-shadow: 0 0 11px #0000001a;
+    color: rgb(238, 238, 238);
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+#menu {
+    min-width: 200px;
+    width: 25%;
+    max-width: 280px;
+    background: white;
+    font-size: 22px;
+    padding: 20px;
+    box-shadow: 0 0 11px #0000001a
+}
+
+.menuitem {
+    padding: 8px 15px 8px 15px;
+    margin-bottom: 10px;
+    background-color: #efefef;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px #0000001c;
+}
+
+.menuheader {
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+    padding: 10px;   
+}
+
+#container {
+    margin-left: 20px;
+    width: auto;
+    flex-grow: 1;
+}
+
+.todo-wrapper {
+    background: #ffffff;
+    padding: 5px 20px 5px 30px;
+    border-radius: 15px;
+    width: auto;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 5px #0000001c;
+
+}
