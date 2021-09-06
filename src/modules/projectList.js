@@ -5,7 +5,8 @@ export default class ProjectList {
   }
 
   addProject(project) {
-    this.projects.push(project);
+    const id = this.projects.push(project);
+    this.currentProject = id
   }
 
   getProjects(){
@@ -14,5 +15,9 @@ export default class ProjectList {
 
   getCurrentProject(){
     return this.projects[0] || undefined
+  }
+
+  setCurrentProject(id){
+    this.currentProject = id
   }
 }
