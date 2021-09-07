@@ -16,14 +16,19 @@ export default class Todo {
 
   getFormattedDate(){
     if (this.dueDate){
-      return format(this.dueDate, 'MM/dd/yyyy')
+      return format(this.dueDate, 'MM/dd/yyyy hh:mm')
     } else {
       return "None"
     }
   }
 
   complete(){
-    this.completed = true
+    console.log('todo is completed')
+    this.completed = true;
+  }
+
+  uncomplete(){
+    this.completed = false;
   }
 
 }

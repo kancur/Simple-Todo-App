@@ -12,4 +12,12 @@ export default class Project {
   getTodos(){
     return this.todos
   }
+
+  getTodo(id){
+    return this.todos[id]
+  }
+
+  removeTodo(id){
+    return this.todos.splice(id, 1)
+  }
 }
