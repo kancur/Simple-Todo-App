@@ -12,14 +12,11 @@ export default class App {
     this.myUI = new UI(this.handleTodoDelete, this.handleTodoDone, this.handleProjectDelete, this.handleTodoAdd)
     this.projectList = new ProjectList();
     this.currentProjectId = this.storage.loadCurrentID() || 0;
-    this.isFirstRun = this.storage.loadStringified('isFirstRun') ? true : false
+    this.isFirstRun = (this.storage.loadStringified('isFirstRun') === null ? true : false);
     this.initialize();
   }
 
   initialize() {
-    console.log('is first run?', this.isFirstRun)
-    console.log('is first run?', this.storage.loadStringified('isFirstRun'))
-    this.storage.saveStringified('isFirstRun', false)
     // get data from localstorage and populate
     const data = this.storage.getDataFromLocalStorage();
 
@@ -31,6 +28,7 @@ export default class App {
     // first render logic run
     this.rerenderProjectsLogic()
     this.rerenderTodosLogic()
+    this.storage.saveStringified('isFirstRun', false)
   }
 
   populateProjectsFromLocalStorageData(data) {
@@ -78,7 +76,6 @@ export default class App {
   getCurrentProject() {
     return this.projectList.getProject(this.currentProjectId)
   }
-
 
   setCurrentProjectID = (id) => {
     this.currentProjectId = id;
