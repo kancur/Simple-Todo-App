@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('./assets/Lato-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
 html {
     background-color: rgb(235, 235, 235);
+    font-family: 'Lato';
 }
 
 body {
@@ -68,6 +76,7 @@ header {
 
 .todo-wrapper h2 {
     color: #1D3557;
+    text-transform: capitalize;
 }
 
 .due-date {
@@ -92,7 +101,7 @@ header {
 
 .btn{
     border: none;
-    background-color: #457B9D;
+    background-color: #518ee4;
     padding: 10px;
     color: white;
     font-weight: 600;
@@ -100,7 +109,7 @@ header {
 }
 
 .btn:hover {
-    background-color: #70a1c0;
+    background-color: #71a4eb;
 }
 
 .mb-10{
@@ -134,15 +143,21 @@ header {
 }
 
 
-.add-project {
+.add-modal {
     align-content: center;
     justify-content: center;
     align-items: stretch;
 }
 
-.add-project form {
+.add-modal form {
     display: flex;
     flex-direction: column;
+}
+
+.add-modal h2 {
+    margin-top: 0px;
+    font-size: 30px;
+    text-align: center;
 }
 
 .button-row > button{
@@ -173,4 +188,48 @@ header {
 .icon-wrapper svg {
     width: 20px;
     fill: white;
+}
+
+.add-modal form label {
+    margin-bottom: 4px;
+}
+.add-modal form input, select {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+#form-notification {
+    color: red;
+    margin: 10px 0px;
+}
+
+.todo-headline-wrapper {
+    display: flex;
+    flex-direction: row;
+    text-transform: capitalize;
+    align-items: center;
+}
+
+.priority {
+    border-radius: 11px;
+    height: fit-content;
+    margin-left: 15px;
+    background-color: #ffbc57;
+    padding: 4px 13px;
+    color: white;
+    font-size: 14px;
+}
+
+#taskmenu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#addtodo {
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    font-size: 45px;
+    line-height: 0;
+    background-color: #28ad5d;
 }

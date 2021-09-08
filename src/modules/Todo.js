@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 
 
 export default class Todo {
@@ -18,7 +18,7 @@ export default class Todo {
     if (this.dueDate){
       return format(this.dueDate, 'MM/dd/yyyy hh:mm')
     } else {
-      return "None"
+      return "No due date"
     }
   }
 

@@ -16,6 +16,10 @@ export default class ProjectList {
     return this.projects
   }
 
+  setProjects(data){
+    this.projects = data
+  }
+
   getProject(id){
     return this.projects[id]
   }

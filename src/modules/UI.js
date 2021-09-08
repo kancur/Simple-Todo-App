@@ -3,31 +3,23 @@ const trashIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><
 
 export default class UI {
   container = document.querySelector('#container');
-  constructor(todoDeleteHandler, todoDoneHandler, projectDeleteHandler) {
+  constructor(todoDeleteHandler, todoDoneHandler, projectDeleteHandler, todoAddHandler) {
     this.todoDeleteHandler = todoDeleteHandler
     this.todoDoneHandler = todoDoneHandler
     this.projectDeleteHandler = projectDeleteHandler
+    this.todoAddHandler = todoAddHandler
+    this.initialize()
   }
 
-
-  addProjectModal(){
-    
-  }
-
-
-  renderAddProjectModal(addHandler) {
-    const body = document.querySelector('body');
-    const modal = document.createElement('div');
-
-    // input
-    const box = document.createElement('div');
-    box.classList.add('box', 'add-project');
-    box.addEventListener('click', (e) => {
-      e.stopPropagation()
+  initialize(){
+    const addTodo = document.querySelector('#addtodo')
+    addTodo.addEventListener('click', () => {
+      this.addTodoModal()
     })
+  }
 
+  addProjectModal(projectCreationHandler){
     const form = document.createElement('form')
-
     const heading = document.createElement('h2');
     heading.textContent = 'Enter your project name';
     const input = document.createElement('input');
@@ -40,26 +32,113 @@ export default class UI {
     form.addEventListener('submit', (e) => {
       e.preventDefault()
       if (input.value.length > 0) {
-        addHandler(input.value)
-        modal.remove()
+        projectCreationHandler(input.value)
+        this.clearModal()
       }
     })
 
-
     form.append(heading, input, btn);
-    box.append(form);
 
+    this.renderModal(form)
+  }
+
+  createLabel(id, text){
+    const label = document.createElement('label');
+    label.setAttribute('for', id);
+    label.innerText = text;
+
+    return label
+  }
+
+  addTodoModal(projectCreationHandler){
+    const todoForm = document.createElement('form')
+    const heading = document.createElement('h2');
+    heading.textContent = 'Enter new todo information';
+    const todoTitleLabel = this.createLabel('todo-title', 'Enter todo title')
+    const todoTitle = document.createElement('input');
+    todoTitle.id = 'todo-title';
+    
+    const todoBodyLabel = this.createLabel('todo-body', 'Enter todo description')
+    const todoBody = document.createElement('input');
+    todoBody.id ='todo-body'
+
+    const todoDateLabel = this.createLabel('todo-date', 'Enter due date and time')
+    const todoDate = document.createElement('input');
+    todoDate.id = 'todo-date'
+
+    //priority
+    const todoPriorityLabel = this.createLabel('todo-prio', 'Choose todo priority')
+    const todoPriority = document.createElement('select')
+    todoPriority.id = 'todo-prio'
+
+    const option1 = document.createElement('option')
+    option1.value = "high";
+    option1.innerText = "high";
+    const option2 = document.createElement('option')
+    option2.value = "low";
+    option2.innerText = "low";
+    todoPriority.append(option1, option2)
+
+    todoDate.type = 'datetime-local'
+    const btn = this.buttonFactory('Add ToDo', (e) => {
+      e.target.blur()
+    })
+    btn.style.width = 'auto';
+    
+    const notification = document.createElement('div')
+    notification.id = "form-notification"
+    todoForm.append(heading,todoTitleLabel, todoTitle, todoBodyLabel, todoBody, todoDateLabel, todoDate, todoPriorityLabel, todoPriority, notification,btn);
+
+    
+    todoForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      if (todoTitle.value.trim().length > 2){
+        
+        const data = {
+          title: todoTitle.value,
+          body: todoBody.value,
+          date: todoDate.value,
+          priority: todoPriority.value,
+        }
+  
+        this.todoAddHandler(data)
+        this.clearModal()
+      } else {
+        notification.innerText = "A title of atleast 3 characters is required"
+      }
+    })
+    
+
+    this.renderModal(todoForm)
+  }
+
+  clearModal(){
+    const modal = document.querySelector('#modal')
+    modal.remove()
+  }
+
+  renderModal(internalElement) {
+    const body = document.querySelector('body');
+    const modal = document.createElement('div');
+    modal.id = 'modal'
+
+    // input
+    const box = document.createElement('div');
+    box.classList.add('box', 'add-modal');
+    box.addEventListener('click', (e) => {
+      e.stopPropagation()
+    })
+
+    box.append(internalElement);
     modal.classList.add('modal')
-
     modal.addEventListener('click', () => {
       modal.remove()
     })
-
     modal.appendChild(box)
     body.prepend(modal)
-
-    input.focus()
   }
+
 
   renderProjectsMenu(projects, changeProjectHandler, addProjectHandler, currentID) {
     const self = this
@@ -67,9 +146,8 @@ export default class UI {
     wrapper.textContent = ""
     const addProjectBtn = this.buttonFactory('Add Project', (e) => {
       e.target.blur()
-      this.renderAddProjectModal(addProjectHandler)
+      this.addProjectModal(addProjectHandler)
     }, 'mb-10')
-
 
     wrapper.appendChild(addProjectBtn)
 
@@ -142,7 +220,20 @@ export default class UI {
     const rightSide = document.createElement('div');
     rightSide.classList.add('rightside');
 
+    const headingWrapper = document.createElement('div');
+    headingWrapper.classList.add('todo-headline-wrapper');
+    
     const heading = document.createElement('h2');
+    heading.textContent = todo.title;
+    heading.style.textDecoration = todo.completed && 'line-through'
+
+    const priority = document.createElement('div');
+    priority.classList.add('priority')
+    priority.style.backgroundColor = (todo.priority === 'high') ? '#e63946' : 'ffbc57'
+    priority.innerText = `${todo.priority} Priority`
+
+    headingWrapper.append(heading, priority)
+
     const description = document.createElement('p');
     const dueDate = document.createElement('div');
     dueDate.classList.add('due-date')
@@ -159,7 +250,6 @@ export default class UI {
       this.todoDoneHandler(index)
     })
 
-    heading.textContent = todo.title;
     description.textContent = todo.description;
     dueDate.textContent = todo.getFormattedDate();
     isCompleted.textContent = todo.completed ? "Completed" : "Not done";
@@ -169,7 +259,7 @@ export default class UI {
     buttonRow.append(buttonDone, buttonRemove) 
     buttonRow.classList.add('button-row')
 
-    leftSide.append(heading, dueDate, description)
+    leftSide.append(headingWrapper, dueDate, description)
     rightSide.append(isCompleted, buttonRow)
 
     wrapper.append(leftSide, rightSide)
