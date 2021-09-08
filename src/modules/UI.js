@@ -141,7 +141,7 @@ export default class UI {
 
 
   renderProjectsMenu(projects, changeProjectHandler, addProjectHandler, currentID) {
-    const self = this
+    const that = this
     const wrapper = document.querySelector('#menuitems')
     wrapper.textContent = ""
     const addProjectBtn = this.buttonFactory('Add Project', (e) => {
@@ -167,7 +167,7 @@ export default class UI {
       const trashIconWrapper = document.createElement('div');
       trashIconWrapper.classList.add('icon-wrapper','red-btn');
       trashIconWrapper.addEventListener('click', () => {
-        self.projectDeleteHandler(index)
+        that.projectDeleteHandler(index)
       })
 
       trashIconWrapper.innerHTML += trashIcon

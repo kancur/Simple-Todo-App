@@ -58,16 +58,19 @@ export default class App {
   }
 
   addTestProjects() {
-    this.projectList.addProject(new Project('Test1'))
-    this.projectList.addProject(new Project('Test4'))
-    this.projectList.addProject(new Project('My third project'))
+    this.projectList.addProject(new Project('School'))
+    this.projectList.addProject(new Project('Work'))
+    this.projectList.addProject(new Project('Future plans'))
 
-    const testtodo = new Todo("do your homework", "description", new Date('2022/03/17'), 'low')
-    const testtodo2 = new Todo("do shopping", "descriptsssion", undefined, 'high')
-    const testtodo3 = new Todo("do fuckin", "dfasdnfhadfhnahkdjlnhj asdnflkhjn", undefined, 'low')
+    const testtodo = new Todo("Do homework", "Prepare for physics exam. Page 245", new Date('2022/03/17'), 'high')
+    const testtodo2 = new Todo("Money for Jess", "$12 for bus trip", undefined, 'high')
+    const testtodo4 = new Todo("Museum trip", "Don't forget $12", new Date('2022/03/14'), 'low')
+    testtodo4.complete()
+    const testtodo3 = new Todo("Ask for a raise", "+ research how much to ask for", undefined, 'high')
 
     this.projectList.projects[0].addTodo(testtodo);
     this.projectList.projects[0].addTodo(testtodo2);
+    this.projectList.projects[0].addTodo(testtodo4);
     this.projectList.projects[1].addTodo(testtodo3);
 
   }
