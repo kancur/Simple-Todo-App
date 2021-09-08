@@ -2,8 +2,8 @@ const trashIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><
 
 
 export default class UI {
-  container = document.querySelector('#container');
   constructor(todoDeleteHandler, todoDoneHandler, projectDeleteHandler, todoAddHandler) {
+    this.container = document.querySelector('#container');
     this.todoDeleteHandler = todoDeleteHandler
     this.todoDoneHandler = todoDoneHandler
     this.projectDeleteHandler = projectDeleteHandler
@@ -139,6 +139,7 @@ export default class UI {
     body.prepend(modal)
   }
 
+  
 
   renderProjectsMenu(projects, changeProjectHandler, addProjectHandler, currentID) {
     const that = this
@@ -183,7 +184,7 @@ export default class UI {
 
 
   cleanTodos() {
-    container.textContent = ""
+    this.container.textContent = ""
   }
 
   buttonFactory = (text, clickListener, customClass) => {
@@ -201,12 +202,12 @@ export default class UI {
     this.cleanTodos()
     if (todos.length > 0) {
       todos.forEach((todo, index) => {
-        container.appendChild(this.todoBox(todo, index))
+        this.container.appendChild(this.todoBox(todo, index))
       });
     } else {
       const div = document.createElement('div')
       div.textContent = "No todos yet";
-      container.appendChild(div)
+      this.container.appendChild(div)
     }
   }
 

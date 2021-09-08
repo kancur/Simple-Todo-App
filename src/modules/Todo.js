@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
-import { format, parseISO } from 'date-fns'
-
+import { format } from 'date-fns';
 
 export default class Todo {
   constructor(title, description, dueDate, priority, notes, checklist) {
@@ -11,24 +10,22 @@ export default class Todo {
     this.priority = priority;
     this.notes = notes;
     this.checklist = checklist;
-    this.completed = false
-  }
-
-  getFormattedDate(){
-    if (this.dueDate){
-      return format(this.dueDate, 'MM/dd/yyyy hh:mm')
-    } else {
-      return "No due date"
-    }
-  }
-
-  complete(){
-    console.log('todo is completed')
-    this.completed = true;
-  }
-
-  uncomplete(){
     this.completed = false;
   }
 
+  getFormattedDate() {
+    if (this.dueDate) {
+      return format(this.dueDate, 'MM/dd/yyyy hh:mm');
+    }
+    return 'No due date';
+  }
+
+  complete() {
+    console.log('todo is completed');
+    this.completed = true;
+  }
+
+  uncomplete() {
+    this.completed = false;
+  }
 }

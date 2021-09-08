@@ -6,18 +6,18 @@ export default class Project {
 
   addTodo(todo) {
     this.todos.push(todo);
-    return todo
+    return todo;
   }
 
-  getTodos(){
-    return this.todos
+  getTodos() {
+    return this.todos;
   }
 
-  getTodo(id){
-    return this.todos[id]
+  getTodo(id) {
+    return this.todos[id];
   }
 
-  removeTodo(id){
-    return this.todos.splice(id, 1)
+  removeTodo(id) {
+    return this.todos.splice(id, 1);
   }
 }

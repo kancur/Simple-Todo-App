@@ -5,22 +5,22 @@ export default class ProjectList {
 
   addProject(project) {
     const id = this.projects.push(project);
-    return id - 1
+    return id - 1;
   }
 
-  removeProject(id){
-    return this.projects.splice(id, 1)
+  removeProject(id) {
+    return this.projects.splice(id, 1);
   }
 
-  getProjects(){
-    return this.projects
+  getProjects() {
+    return this.projects;
   }
 
-  setProjects(data){
-    this.projects = data
+  setProjects(data) {
+    this.projects = data;
   }
 
-  getProject(id){
-    return this.projects[id]
+  getProject(id) {
+    return this.projects[id];
   }
 }
