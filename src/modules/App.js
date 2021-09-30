@@ -64,7 +64,7 @@ export default class App {
     const testtodo2 = new Todo("Money for Jess", "$12 for bus trip", undefined, 'high')
     const testtodo4 = new Todo("Museum trip", "Don't forget $12", new Date('2022/03/14'), 'low')
     testtodo4.complete()
-    const testtodo3 = new Todo("Ask for a raise", "+ research how much to ask for", undefined, 'high')
+    const testtodo3 = new Todo("Help Helen", "the documents are in the 2nd drawer", undefined, 'high')
 
     this.projectList.projects[0].addTodo(testtodo);
     this.projectList.projects[0].addTodo(testtodo2);
