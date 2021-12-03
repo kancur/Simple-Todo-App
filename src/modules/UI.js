@@ -28,6 +28,7 @@ export default class UI {
     heading.textContent = "Enter your project name";
     const input = document.createElement("input");
     input.style.marginBottom = "15px";
+    input.autofocus = true;
     const btn = this.buttonFactory("Add Project", (e) => {
       e.target.blur();
     });
@@ -61,6 +62,8 @@ export default class UI {
     const todoTitleLabel = this.createLabel("todo-title", "Enter todo title");
     const todoTitle = document.createElement("input");
     todoTitle.id = "todo-title";
+    todoTitle.autofocus = true;
+
 
     const todoBodyLabel = this.createLabel(
       "todo-body",
@@ -113,6 +116,7 @@ export default class UI {
       notification,
       btn
     );
+
 
     todoForm.addEventListener("submit", (e) => {
       e.preventDefault();
