@@ -1,6 +1,9 @@
+[![Simple todo app featured](https://github.com/kancur/Simple-Todo-App/blob/main/todo-featured.png?raw=true)](https://kancur.github.io/Simple-Todo-App/)
 # Simple-Todo-App
-A frontend only todo app with basic state saving in localstorage.
-Done as a part of TheOdinProject curicculum. [Here's the assignment](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list)
+A frontend-only todo app with basic state saving in localstorage.
+Done as a part of TheOdinProject curriculum. [Here's the assignment](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list)
+
+**[Click here for the live version](https://kancur.github.io/Simple-Todo-App/)**
 
 ## Tech Stack
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript"><img src="https://github.com/get-icon/geticon/raw/master/icons/javascript.svg" alt="JavaScript" width="21px" height="21px"></a> Javascript  
