@@ -169,17 +169,20 @@ export default class UI {
   ) {
     const that = this;
     const wrapper = document.querySelector("#menuitems");
+    const menubuttonsWrapper = document.querySelector('#menubuttons');
     wrapper.textContent = "";
+    menubuttonsWrapper.innerHTML = "";
+
     const addProjectBtn = this.buttonFactory(
       "Add Project",
       (e) => {
         e.target.blur();
         this.addProjectModal(addProjectHandler);
-      },
-      "mb-10"
+      }
     );
 
-    wrapper.appendChild(addProjectBtn);
+    //wrapper.appendChild(addProjectBtn);
+    menubuttonsWrapper.appendChild(addProjectBtn)
 
     projects.forEach((project, index) => {
       wrapper.appendChild(menuitem(project.name, index));
