@@ -1,5 +1,5 @@
 # Simple-Todo-App
-A fronted only todo app with basic state saving in localstorage.
+A frontend only todo app with basic state saving in localstorage.
 Done as a part of TheOdinProject curicculum. [Here's the assignment](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list)
 
 ## Tech Stack
