@@ -1,6 +1,6 @@
 [![Simple todo app featured](https://github.com/kancur/Simple-Todo-App/blob/main/todo-featured.png?raw=true)](https://kancur.github.io/Simple-Todo-App/)
 # Simple-Todo-App
-A frontend-only todo app with basic state saving in localstorage.
+A frontend-only todo app done in vanilla JS with basic state saving in localstorage.
 Done as a part of TheOdinProject curriculum. [Here's the assignment](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list)
 
 **[Click here for the live version](https://kancur.github.io/Simple-Todo-App/)**
