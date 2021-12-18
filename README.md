@@ -13,4 +13,4 @@ Done as a part of TheOdinProject curriculum. [Here's the assignment](https://www
 
 ## Get in touch with me
 🔗 Visit my [portfolio](https://petersmid.com)  
-💬 [Contact me](https://petersmid.com/contact)  
+💬 [Contact me](https://petersmid.com/#contact)  
